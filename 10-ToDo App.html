@@ -3,15 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="fontawesome-free-6.6.0-web/css/all.css">
+    <title>ToDo App</title>
     <style>
-
+        @font-face {
+            font-family: 'iransans';
+            src: url('iransans.ttf');
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            direction: rtl;
+            background-color: rgb(88, 17, 61);
+            color: white;
+            font-family: 'iransans';
+        }
+        h1{
+            text-align: center;
+            border-bottom: 4px solid white;
+        }
+        .container{
+            margin: 50px 80px;
+            background-color: rgb(69, 12, 64);
+            padding: 50px;
+            border-radius: 30px;
+        }
+        .item{
+            display: flex;
+            flex-direction: row;
+            background-color: rgb(65, 4, 30);
+            margin-bottom: 30px;
+            align-items: center;
+        }
+        .item p{
+            flex: 7;
+            font-size: 20px;
+            padding: 10px 0;
+            margin: 0;
+            text-align: right;
+            color: white;
+        }
+        .item i{
+            flex: 1;
+            font-size: 30px;
+            padding: 10px 50px;
+        }
+        .item button{
+            flex: 1;
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+        }
+        .item button i{
+            font-size: 20px;
+        }
+        .add-form{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 50px 150px;
+        }
+        .add-form input{
+            flex: 2;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            font-size: 20px;
+            font-family: 'iransans';
+        }
+        .add-form button{
+            flex: 1;
+            background-color: rgb(65, 4, 30);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 20px;
+            font-family: 'iransans';
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        .add-form button:hover{
+            background-color: coral;
+        }
     </style>
 </head>
 <body>
-    
-    <script>
+    <div class="container" id="todo-container">
+        <h1>لیست کار های من</h1>
         
+    </div>
+    <div class="add-form">
+        <input type="text" placeholder="اضافه کردن کار جدید" id="text-input">
+        <button onclick="addToDo()">
+            <i class="fa fa-plus"></i>
+            اضافه کردن
+        </button>
+    </div>
+    <script>
+        var addToDo = function() {
+            var text = document.getElementById('text-input').value;
+            var item = document.createElement('div');
+            item.classList.add('item');
+            item.innerHTML = `<i class="fa fa-file"></i><p>${text}</p><button><i class="fa fa-trash"></i></button>`;
+            document.getElementById('todo-container').appendChild(item);
+            document.getElementById('text-input').value = '';
+        };
     </script>
 </body>
 </html>
