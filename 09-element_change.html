@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-size: 30px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">salam</p>
+    <button onclick="changetext()">تغییر نوشته</button>
+    <script>
+        var changetext = function() {
+            document.getElementById('text').textContent += ' bye';
+            alert('متن تغییر کرد');
+        }
+    </script>
+</body>
+</html>
